@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:chatApp.Mobile.ViewModels"
+             x:Class="chatApp.Mobile.Views.EditProfilPage">
+
+    <ContentPage.BindingContext>
+        <vm:ProfilViewModel></vm:ProfilViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <StackLayout Margin="16" Padding="5">
+                <Label Text="Welcome to Edit Profile page!"
+                FontSize="25"
+                VerticalTextAlignment="Center" 
+                HorizontalTextAlignment="Center"
+                   Margin="10" Padding="10" />
+            </StackLayout>
+            <StackLayout Margin="16" Padding="5">
+                <StackLayout  Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="UserName: "></Label>
+                    <Label Text="{Binding User.UserName}" WidthRequest = "200"></Label>
+                    <Label Text="{Binding User.Id}" IsVisible="false" ></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="First Name: "></Label>
+                    <Entry Text="{Binding User.FirstName}"
+                           Placeholder = "Enter First name"
+                           WidthRequest = "200"
+                           ></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Last Name: "></Label>
+                    <Entry Text="{Binding User.LastName}"
+                           Placeholder = "Enter Last name"
+                           WidthRequest = "200"
+                           ></Entry>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Telephone:    "></Label>
+                    <Entry Text="{Binding User.Telephone}"
+                           x:Name="inputTelephone" 
+                           Placeholder = "Enter Telephone Number"
+                           WidthRequest = "200"
+                           ></Entry>
+
+                    <Label x:Name="telephoneError" TextColor="Red" IsVisible="True"></Label>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Email:    "></Label>
+                    <Entry Text="{Binding User.Email}"
+                           x:Name="inputEmail" 
+                           Placeholder = "Enter Email"
+                           WidthRequest = "200"
+                           ></Entry>
+
+                    <Label x:Name="emailError" TextColor="Red" IsVisible="True"></Label>
+
+                </StackLayout>
+                
+                <StackLayout Margin="16" Padding="5">
+                <Label Text="Must enter new password for confirmation or just change it!"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Label WidthRequest="200" Text="Password: "></Label>
+                        <Entry Text="{Binding Password}"
+                           Placeholder = "Enter Password"
+                           WidthRequest = "200"
+                           x:Name="inputPassword"
+                               IsPassword="True"
+                           ></Entry>
+                        <Label x:Name="passwordError" TextColor="Red" IsVisible="True"></Label>
+
+                    </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label WidthRequest="200" Text="Password Confirmation: "></Label>
+                    <Entry Text="{Binding PasswordConf}"
+                           Placeholder = "Enter Password Confirmation"
+                           WidthRequest = "200"
+                           IsPassword="True"
+                           x:Name="inputConf"
+                           ></Entry>
+                    
+                        <Label x:Name="passwordConfError" TextColor="Red" IsVisible="True"></Label>
+
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Margin="15">
+            <Label HorizontalTextAlignment="Center" Text="Make sure every changes you make are in correct format!"></Label>
+            <Button Margin="16" Text="Edit Profile" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

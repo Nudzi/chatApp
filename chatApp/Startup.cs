@@ -11,6 +11,9 @@ using chatApp.Database;
 using Microsoft.AspNetCore.Authentication;
 using chatApp.WebAPI.Security;
 using Microsoft.OpenApi.Models;
+using chatModel.Requests.Friends;
+using chatModel.Requests.UserImages;
+using chatModel.Requests.Histories;
 
 namespace chatApp.WebAPI
 {
@@ -71,11 +74,9 @@ namespace chatApp.WebAPI
             //services.AddScoped<IIngredientsService, IngredientsService>();
             //services.AddScoped<IStoragesService, StoragesService>();
 
-            //services.AddScoped<IService<chatModel.Units, object>, BaseService<chatModel.Units, object, Units>>();
-            //services.AddScoped<IService<chatModel.ProductTypes, object>, BaseService<chatModel.ProductTypes, object, ProductTypes>>();
-            //services.AddScoped<IService<chatModel.IngredientTypes, object>, BaseService<chatModel.IngredientTypes, object, IngredientTypes>>();
-            //services.AddScoped<IService<chatModel.Units, object>, BaseService<chatModel.Units, object, Units>>();
-            //services.AddScoped<ICRUDService<chatModel.ProductsIngredients, ProductsIngredientsSearchRequest, ProductsIngredientsUpsertRequest, ProductsIngredientsUpsertRequest>, ProductsIngredientsService>();
+            services.AddScoped<ICRUDService<chatModel.Friends, FriendsSearchRequest, FriendsUpsertRequest, FriendsUpsertRequest>, FriendsService>();
+            services.AddScoped<ICRUDService<chatModel.UserImages, UserImagesSearchRequest, UserImagesUpsertRequest, UserImagesUpsertRequest>, UserImagesService>();
+            services.AddScoped<ICRUDService<chatModel.Histories, HistoriesSearchRequest, HistoriesUpsertRequest, HistoriesUpsertRequest>, HistoriesService>();
             //services.AddScoped<ICRUDService<chatModel.Orders, OrdersSearchRequest, OrdersUpsertRequest, OrdersUpsertRequest>, OrdersService>();
             //services.AddScoped<ICRUDService<chatModel.InputProducts, InputProductsSearchRequest, InputProductsUpsertRequest, InputProductsUpsertRequest>, InputProductsService>();
             //services.AddScoped<ICRUDService<chatModel.OutputProducts, OutputProductsSearchRequest, OutputProductsUpsertRequest, OutputProductsUpsertRequest>, OutputProductsService>();

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:chatApp.Mobile.ViewModels"
+             x:Class="chatApp.Mobile.Views.ProfilDetailPage"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:ProfilViewModel></vm:ProfilViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <StackLayout Margin="16" Padding="5">
+            <Label Text="Welcome to Profile page!"
+                FontSize="25"
+                VerticalTextAlignment="Center" 
+                HorizontalTextAlignment="Center"
+                   Margin="10" Padding="10" />
+            </StackLayout>
+            <StackLayout Margin="16" Padding="5">           
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="UserName: "></Label>
+                    <Label Text="{Binding User.UserName}"></Label>
+                    <Label Text="{Binding User.Id}" IsVisible="false"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="First Name: "></Label>
+                    <Label Text="{Binding User.FirstName}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Last Name: "></Label>
+                    <Label Text="{Binding User.LastName}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Telephone: "></Label>
+                    <Label Text="{Binding User.Telephone}"></Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Email: "></Label>
+                    <Label Text="{Binding User.Email}"></Label>
+                </StackLayout>
+            </StackLayout>
+            <Button Margin="16" Text="Edit Profile" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

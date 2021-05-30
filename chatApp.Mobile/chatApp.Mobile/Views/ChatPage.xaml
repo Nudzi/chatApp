@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:converters="clr-namespace:chatApp.Mobile.Converters" xmlns:vm="clr-namespace:chatApp.Mobile.ViewModels"
+             x:Class="chatApp.Mobile.Views.ChatPage">
+        <ContentPage.Resources>
+            <ResourceDictionary>
+                <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+                <converters:InverseBoolConverter x:Key="inverter"></converters:InverseBoolConverter>
+        </ResourceDictionary>
+        </ContentPage.Resources>
+
+        <ContentPage.BindingContext>
+            <vm:ChatViewModel/>
+        </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+            <StackLayout Margin="5" Padding="0,0,3,0" StyleClass="BodyStyle">
+
+                <ListView ItemsSource="{Binding Histories}" ItemSelected="ListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                    <StackLayout Margin="5" Orientation="Vertical">
+
+                                        <StackLayout IsVisible="{Binding isPrimary}" Margin="5" Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                            <Image IsVisible="{Binding isVisibleImage}" WidthRequest="200" HeightRequest="200" Source="{Binding Image, Converter={StaticResource imgConv}}"></Image>
+                                            <Label Text="{Binding Message}" IsVisible="{Binding isVisibleMessage}"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout IsVisible="{Binding isPrimary, Converter={StaticResource inverter}}" Margin="5" Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                            <Image  IsVisible="{Binding isVisibleImage}" WidthRequest="200" HeightRequest="200" Source="{Binding Image, Converter={StaticResource imgConv}}"></Image>
+                                            <Label Text="{Binding Message}" IsVisible="{Binding isVisibleMessage}"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                        </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="message"
+                    WidthRequest="400" Placeholder="Type a message..."></Entry>
+                <Button Text="SEND" BackgroundColor="PaleVioletRed" Clicked="Send_Message"></Button>
+                <Button Text="+" Clicked="Add_Picture"></Button>
+                <Image HeightRequest="60" x:Name="resultImage" WidthRequest="60"></Image>
+                <Button Text="-" Clicked="Remove_Picture"></Button>
+            </StackLayout>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
