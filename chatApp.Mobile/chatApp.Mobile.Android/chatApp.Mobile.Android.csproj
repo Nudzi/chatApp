@@ -57,6 +57,15 @@
     <PackageReference Include="Flurl.Http">
       <Version>3.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.ML">
+      <Version>1.5.5</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.ML.ImageAnalytics">
+      <Version>1.5.5</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.ML.OnnxTransformer">
+      <Version>1.5.5</Version>
+    </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
       <Version>5.0.1</Version>
     </PackageReference>

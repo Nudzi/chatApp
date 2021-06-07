@@ -2,8 +2,6 @@
 using chatModel.Requests.Friends;
 using Plugin.Media;
 using System.IO;
-using System.Linq;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -33,7 +31,7 @@ namespace chatApp.Mobile.Views
             }
             var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
             {
-                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small
+                PhotoSize = (Plugin.Media.Abstractions.PhotoSize)3
             });
 
             if (file == null)
@@ -50,7 +48,6 @@ namespace chatApp.Mobile.Views
         private async void Send_Message(object sender, System.EventArgs e)
         {
 
-            //await TextToSpeech.SpeakAsync("Jebi se Keno");
             if (message.Text == null && resultImage.Source == null)
             {
                 await DisplayAlert("Error", "Send Image or Message!", "OK");

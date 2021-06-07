@@ -26,5 +26,10 @@
     <ProjectReference Include="..\chatModel\chatModel.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="example.onnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>
