@@ -2,7 +2,6 @@
 using chatModel;
 using chatModel.Requests.Friends;
 using chatModel.Requests.Histories;
-using Microsoft.ML;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,6 +15,9 @@ using chatModel.Recommender;
 using System.Linq;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+//using IronPython.Hosting;
+//using Microsoft.Scripting.Hosting;
+using Microsoft.ML;
 
 namespace chatApp.Mobile.ViewModels
 {
@@ -37,6 +39,7 @@ namespace chatApp.Mobile.ViewModels
         {
             try
             {
+                //ScriptRuntime ipy = Python.CreateRuntime();
                 ////var onnxPredictionPipeline = mlContext.Transforms.ApplyOnnxModel(
                 ////    outputColumnNames: outputColumns,
                 ////    inputColumnNames: inputColumns,
@@ -128,40 +131,44 @@ namespace chatApp.Mobile.ViewModels
                 if (fInfo.Exists)
                 {
                     string imagesFolder = fInfo.DirectoryName + "/pictures";
-                    MLContext mlContext = new MLContext();
-                    IEnumerable<ImageNetData> images = ImageNetData.ReadFromFile(imagesFolder, ConvertByteArrayToFloat(byteImage));
-                    IDataView imageDataView = mlContext.Data.LoadFromEnumerable(images);
-
-                    var modelScorer = new OnnxModelScorer(imagesFolder, ONNX_MODEL_PATH, mlContext);
-
-                    // Use model to score data
-                    IEnumerable<float[]> probabilities = modelScorer.Score(imageDataView);
-                    YoloOutputParser parser = new YoloOutputParser();
-
-                    var boundingBoxes =
-                        probabilities
-                        .Select(probability => parser.ParseOutputs(probability))
-                        .Select(boxes => parser.FilterBoundingBoxes(boxes, 5, .5F));
-
-                    // just predict
-
-                    ITransformer transform = modelScorer.Load(imageDataView);
-                    var onnxPredictionEngine = mlContext.Model.CreatePredictionEngine<ImageNetData, ImageNamePrediction>(transform);
+                    //System.Drawing.Image mojaSlika = System.Drawing.Image.FromFile(imagesFolder + "/chair.png");
+                    //Bitmap bitmap = new Bitmap(mojaSlika, new System.Drawing.Size(224, 224));
 
 
-                    ImageNetData imageNetData = new ImageNetData
-                    {
-                        SamplingKeyColumn = ConvertByteArrayToFloat(byteImage)
-                    };
-                    float[] mojNoviFloat = new float[150528];
-                    var somethig = imageNetData.SamplingKeyColumn.Length;
-                    float[] newMine = ConvertByteArrayToFloat(byteImage).Take(150528).ToArray();
-                    //Array.Resize(ref byteImage, 1024);
-                    var testInput = new ImageNetData
-                    {
-                        SamplingKeyColumn = newMine
-                    };
-                    var prediction = onnxPredictionEngine.Predict(testInput);
+                    //MLContext mlContext = new MLContext();
+                    //IEnumerable<ImageNetData> images = ImageNetData.ReadFromFile(imagesFolder, ConvertByteArrayToFloat(byteImage));
+                    //IDataView imageDataView = mlContext.Data.LoadFromEnumerable(images);
+
+                    //var modelScorer = new OnnxModelScorer(imagesFolder, ONNX_MODEL_PATH, mlContext);
+
+                    //// Use model to score data
+                    //IEnumerable<float[]> probabilities = modelScorer.Score(imageDataView);
+                    //YoloOutputParser parser = new YoloOutputParser();
+
+                    //var boundingBoxes =
+                    //    probabilities
+                    //    .Select(probability => parser.ParseOutputs(probability))
+                    //    .Select(boxes => parser.FilterBoundingBoxes(boxes, 5, .5F));
+
+                    //// just predict
+
+                    ////ITransformer transform = modelScorer.Load(imageDataView);
+                    ////var onnxPredictionEngine = mlContext.Model.CreatePredictionEngine<ImageNetData, ImageNamePrediction>(transform);
+
+
+                    ////ImageNetData imageNetData = new ImageNetData
+                    ////{
+                    ////    SamplingKeyColumn = ConvertByteArrayToFloat(byteImage)
+                    ////};
+                    ////float[] mojNoviFloat = new float[150528];
+                    ////var somethig = imageNetData.SamplingKeyColumn.Length;
+                    ////float[] newMine = ConvertByteArrayToFloat(byteImage).Take(150528).ToArray();
+                    ////Array.Resize(ref byteImage, 1024);
+                    ////var testInput = new ImageNetData
+                    ////{
+                    ////    SamplingKeyColumn = ConvertByteArrayToFloat(byteImage)
+                    ////};
+                    ////var prediction = onnxPredictionEngine.Predict(testInput);
 
                     //var outputFolder = fInfo.DirectoryName + "/pictures2";
                     //for (var i = 0; i < images.Count(); i++)
@@ -172,7 +179,7 @@ namespace chatApp.Mobile.ViewModels
                     //    LogDetectedObjects(imageFileName, detectedObjects);
                     //    Console.WriteLine("========= End of Process..Hit any Key ========");
                     //    Console.ReadLine();
-                    //await Application.Current.MainPage.DisplayAlert("Error", detectedObjects.ToString(), "OK");
+                    //    await Application.Current.MainPage.DisplayAlert("Error", detectedObjects.ToString(), "OK");
                     //}
 
                     //var something = mlContext.Transforms.ApplyOnnxModel(ONNX_MODEL_PATH);

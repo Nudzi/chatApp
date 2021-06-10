@@ -28,12 +28,12 @@ namespace chatModel.Recommender
         [LoadColumn(1)]
         public string Label;
 
-        public static IEnumerable<ImageNetData> ReadFromFile(string imageFolder, float[] image)
+        public static IEnumerable<ImageNetData> ReadFromFile(string imageFolder)
         {
             return Directory
                 .GetFiles(imageFolder)
                 .Where(filePath => Path.GetExtension(filePath) != ".md")
-                .Select(filePath => new ImageNetData { SamplingKeyColumn = image, ImagePath = filePath, Label = Path.GetFileName(filePath) });
+                .Select(filePath => new ImageNetData { ImagePath = filePath, Label = Path.GetFileName(filePath) });
         }
     }
 }

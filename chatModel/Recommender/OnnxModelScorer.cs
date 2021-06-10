@@ -20,8 +20,8 @@ namespace chatModel.Recommender
         }
         public struct ImageNetSettings
         {
-            public const int imageHeight = 416;
-            public const int imageWidth = 416;
+            public const int imageHeight = 224;
+            public const int imageWidth = 224;
         }
         public struct TinyYoloModelSettings
         {

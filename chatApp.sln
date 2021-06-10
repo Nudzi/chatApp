@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chatApp.Mobile.iOS", "chatA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "chatApp.Mobile", "chatApp.Mobile\chatApp.Mobile\chatApp.Mobile.csproj", "{B1DF4EF1-F207-4B3E-82EE-6525B8F67BB6}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonApplication1", "PythonApplication1\PythonApplication1.pyproj", "{A6216190-B5FE-48F5-BB09-D1446008EFFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -237,6 +239,20 @@ Global
 		{B1DF4EF1-F207-4B3E-82EE-6525B8F67BB6}.Release|x64.Build.0 = Release|Any CPU
 		{B1DF4EF1-F207-4B3E-82EE-6525B8F67BB6}.Release|x86.ActiveCfg = Release|Any CPU
 		{B1DF4EF1-F207-4B3E-82EE-6525B8F67BB6}.Release|x86.Build.0 = Release|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Release|x64.ActiveCfg = Release|Any CPU
+		{A6216190-B5FE-48F5-BB09-D1446008EFFA}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
