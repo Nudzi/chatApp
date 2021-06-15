@@ -7,6 +7,7 @@
         <vm:ProfilViewModel></vm:ProfilViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout VerticalOptions="CenterAndExpand">
             <StackLayout Margin="16" Padding="5">
                 <Label Text="Welcome to Edit Profile page!"
@@ -16,7 +17,14 @@
                    Margin="10" Padding="10" />
             </StackLayout>
             <StackLayout Margin="16" Padding="5">
-                <StackLayout  Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                        <Label Text="Profile Image"></Label>
+                        <Label Text="Add image here!"></Label>
+                        <Button Text="+" Clicked="Add_Picture"></Button>
+                        <Image HeightRequest="80" x:Name="resultImage" WidthRequest="80"></Image>
+                        <Button Text="-" Clicked="Remove_Picture"></Button>
+                    </StackLayout>
+                    <StackLayout  Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                     <Label Text="UserName: "></Label>
                     <Label Text="{Binding User.UserName}" WidthRequest = "200"></Label>
                     <Label Text="{Binding User.Id}" IsVisible="false" ></Label>
@@ -37,12 +45,7 @@
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                     <Label Text="Telephone:    "></Label>
-                    <Entry Text="{Binding User.Telephone}"
-                           x:Name="inputTelephone" 
-                           Placeholder = "Enter Telephone Number"
-                           WidthRequest = "200"
-                           ></Entry>
-
+                    <Label Text="{Binding User.Telephone}" WidthRequest = "200"></Label>
                     <Label x:Name="telephoneError" TextColor="Red" IsVisible="True"></Label>
 
                 </StackLayout>
@@ -91,5 +94,6 @@
             <Button Margin="16" Text="Edit Profile" Clicked="Button_Clicked"></Button>
         </StackLayout>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -1,16 +1,14 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
-using Xamarin.Forms;
-
 using chatModel;
 using chatApp.Mobile.Services;
 using chatModel.Requests.Friends;
 using chatModel.Requests.UserImages;
 using System.Collections.Generic;
-using System.Windows.Input;
 using chatModel.Requests.Histories;
 using System.Linq;
+using chatModel.Requests.Users;
 
 namespace chatApp.Mobile.ViewModels
 {
@@ -22,6 +20,7 @@ namespace chatApp.Mobile.ViewModels
         private readonly APIService _historiesService = new APIService("histories");
 
         public ObservableCollection<FriendList> FriendList { get; set; } = new ObservableCollection<FriendList>();
+        public ObservableCollection<UsersSearchList> UsersSearchedList { get; set; } = new ObservableCollection<UsersSearchList>();
 
         public ItemsViewModel()
         {
@@ -35,11 +34,24 @@ namespace chatApp.Mobile.ViewModels
             };
             var friends = await _friendsService.Get<List<Friends>>(friendsSearchRequest);
 
+            FriendsSearchRequest friendsSearchRequest2 = new FriendsSearchRequest
+            {
+                UserIdsecondary = Global.LoggedUser.Id
+            };
+            var friends2 = await _friendsService.Get<List<Friends>>(friendsSearchRequest2);
+            foreach (var item in friends2)
+            {
+                friends.Add(item);
+            }
+
             FriendList.Clear();
 
             foreach (var item in friends)
             {
                 Users user = await _usersService.GetById<Users>(item.UserIdsecondary);
+                if(item.UserIdsecondary == Global.LoggedUser.Id) {
+                    user = await _usersService.GetById<Users>(item.UserIdprimary);
+                }
                 UserImagesSearchRequest request = new UserImagesSearchRequest
                 {
                     UserId = user.Id
@@ -54,19 +66,28 @@ namespace chatApp.Mobile.ViewModels
                     ImageThumb = userImages[0].ImageThumb,
                     Seen = true
                 };
+                if (item.UserIdsecondary == Global.LoggedUser.Id)
+                {
+                    tmp.UserIdSecondary = item.UserIdprimary;
+                }
+
                 HistoriesSearchRequest historiesSearchRequest = new HistoriesSearchRequest
                 {
                     UserIdSecondary = Global.LoggedUser.Id,
                     UserIdPrimary = item.UserIdsecondary,
                     Status = false
                 };
+                //if (item.UserIdsecondary == Global.LoggedUser.Id)
+                //{
+                //    tmp.UserIdSecondary = item.UserIdprimary;
+                //}
                 var historylist = await _historiesService.Get<List<Histories>>(historiesSearchRequest);
                 if (historylist.Count() != 0)
                     tmp.Seen = false;
 
                 FriendList.Add(tmp);
             }
-        }
 
+        }
     }
 }

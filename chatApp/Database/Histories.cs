@@ -13,6 +13,7 @@ namespace chatApp.Database
         public bool Status { get; set; }
         public byte[] Image { get; set; }
         public byte[] ImageThumb { get; set; }
+        public string ImagePath { get; set; }
 
         public virtual Users UserIdPrimaryNavigation { get; set; }
         public virtual Users UserIdSecondaryNavigation { get; set; }

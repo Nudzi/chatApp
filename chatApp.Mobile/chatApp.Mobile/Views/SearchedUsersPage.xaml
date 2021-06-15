@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:converters="clr-namespace:chatApp.Mobile.Converters" 
+             xmlns:vm="clr-namespace:chatApp.Mobile.ViewModels"
+             x:Class="chatApp.Mobile.Views.SearchedUsersPage">
+    <ContentPage.BindingContext>
+        <vm:SearchedUsersViewModel></vm:SearchedUsersViewModel>
+        </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="inverter"></converters:InverseBoolConverter>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+        
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="5" Padding="0,0,3,0" StyleClass="BodyStyle">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label IsVisible="{Binding NoData}" BackgroundColor="OrangeRed" TextColor="White" Text="No Users With That Phone Number :("></Label>
+            </StackLayout>
+            <ListView IsVisible="{Binding HasData}" ItemsSource="{Binding UsersSearchedList}" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout Padding="10" Orientation="Horizontal"
+                                             >
+                                    <StackLayout VerticalOptions="StartAndExpand" 
+                HorizontalOptions="StartAndExpand">
+                                        <Image WidthRequest="200" HeightRequest="100" Source="{Binding Image, Converter={StaticResource imgConv}}"></Image>
+                                    </StackLayout>
+                                    <StackLayout Margin="5" Orientation="Vertical" VerticalOptions="StartAndExpand" 
+                HorizontalOptions="StartAndExpand">
+
+                                        <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
+                                            <Label Text="First name:  " FontSize="16"></Label>
+                                            <Label Text="{Binding FirstName}"
+                                       LineBreakMode="NoWrap"
+                                               IsVisible="{Binding Seen}"
+                                       FontSize="16"></Label>
+                                        </StackLayout>
+                                        <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
+                                            <Label Text="Last Name:  " FontSize="16"></Label>
+                                            <Label Text="{Binding LastName}"
+                                       LineBreakMode="NoWrap"
+                                       FontSize="16"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using chatApp.Database;
+using chatModel.Requests.Friends;
 using chatModel.Requests.Histories;
+using chatModel.Requests.UserImages;
 using chatModel.Requests.Users;
 
 namespace chatApp.WebAPI.Mappers
@@ -19,10 +21,11 @@ namespace chatApp.WebAPI.Mappers
 
             //friends
             CreateMap<Friends, chatModel.Friends>();
-            CreateMap<Friends, chatModel.Friends>().ReverseMap();
+            CreateMap<Friends, FriendsUpsertRequest>().ReverseMap();
 
             //friends
             CreateMap<UserImages, chatModel.UserImages>();
+            CreateMap<UserImages, UserImagesUpsertRequest>().ReverseMap();
             CreateMap<UserImages, chatModel.UserImages>().ReverseMap();
 
             //histories

@@ -57,6 +57,10 @@ namespace chatApp.Database
 
             modelBuilder.Entity<Histories>(entity =>
             {
+                entity.Property(e => e.ImagePath)
+                    .HasMaxLength(225)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Message).HasMaxLength(500);
 
                 entity.Property(e => e.ModifiedDate).HasColumnType("datetime");

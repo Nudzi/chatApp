@@ -1,5 +1,6 @@
 ﻿using chatApp.Mobile.Services;
 using chatModel;
+using chatModel.Requests.UserImages;
 using chatModel.Requests.Users;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,26 @@ namespace chatApp.Mobile.ViewModels
     public class ProfilViewModel : BaseViewModel
     {
         private readonly APIService _usersService = new APIService("users");
+        private readonly APIService _userImagesService = new APIService("userImages");
 
         public ProfilViewModel()
         {
-            InitCommand = new Command(async () => await Init());
-            SaveCommand = new Command(async () => await SaveUserProfil());
         }
-        public Users User { get; set; }
+        public Users _user = new Users();
+        public byte[] byteImage { get; set; }
+        public Users User
+        {
+            get { return _user; }
+            set { SetProperty(ref _user, value); }
+        }
+
+        byte[] _image;
+        public byte[] Image
+        {
+            get { return _image; }
+            set { SetProperty(ref _image, value); }
+        }
+
         string _username = string.Empty;
 
         string _firstname = string.Empty;
@@ -52,15 +66,21 @@ namespace chatApp.Mobile.ViewModels
         {
             try
             {
-                //var gettedUser = await _usersService.GetById<Users>(User.Id);
-                //User = gettedUser;
+                User = Global.LoggedUser;
+                var user = await _usersService.GetById<Users>(User.Id);
+                UserImagesSearchRequest request = new UserImagesSearchRequest
+                {
+                    UserId = user.Id
+                };
+                var image = await _userImagesService.Get<List<UserImages>>(request);
+                Image = image[0].Image;
             }
             catch
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "Error", "OK");
             }
         }
-        public async Task SaveUserProfil()
+        public async Task SaveUserProfil(Image resultImage)
         {
             try
             {
@@ -93,7 +113,6 @@ namespace chatApp.Mobile.ViewModels
                 request.Telephone = gettedUser.Telephone;
                 request.UserName = gettedUser.UserName;
                 request.UserTypes = userInts;
-                //request.UserAddressId = forUserAddress.UserAddressId;
 
 
                 if (request != null)
@@ -107,9 +126,26 @@ namespace chatApp.Mobile.ViewModels
                     if (!User.Telephone.Equals(""))
                         request.Telephone = User.Telephone;
 
-                    //await _usersService.Update<Users>(request.Id, request);
-                    //var glob = await _usersService.GetById<Users>(request.Id);
-                    //Global.LoggedUser = glob;
+                    await _usersService.Update<Users>(request.Id, request);
+                    var glob = await _usersService.GetById<Users>(request.Id);
+                    Global.LoggedUser = glob;
+
+                    if (resultImage != null)
+                    {
+                        UserImagesSearchRequest imagesSearchRequest = new UserImagesSearchRequest
+                        {
+                            UserId = gettedUser.Id
+                        };
+                        var image = await _userImagesService.Get<List<UserImages>>(imagesSearchRequest);
+                        UserImagesUpsertRequest userImagesUpsertRequest = new UserImagesUpsertRequest
+                        {
+                            Id = image[0].Id,
+                            Image = byteImage,
+                            ImageThumb = byteImage,
+                            UserId = gettedUser.Id
+                        };
+                        await _userImagesService.Update<UserImages>(image[0].Id ,userImagesUpsertRequest);
+                    }
                     await Application.Current.MainPage.DisplayAlert("Success", "Successfuly edited! ", "OK");
                 }
                 else

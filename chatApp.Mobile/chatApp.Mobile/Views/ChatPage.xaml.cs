@@ -1,5 +1,6 @@
 ﻿using chatApp.Mobile.ViewModels;
 using chatModel.Requests.Friends;
+using chatModel.Requests.Histories;
 using Plugin.Media;
 using System.IO;
 using System.Linq;
@@ -39,6 +40,7 @@ namespace chatApp.Mobile.Views
             if (file == null)
                 return;
             var stream = file.GetStream();
+            model.AlbumPath = file.AlbumPath;
 
             resultImage.Source = ImageSource.FromStream(() => stream);
             var memoryStream = new MemoryStream();
@@ -50,7 +52,6 @@ namespace chatApp.Mobile.Views
         private async void Send_Message(object sender, System.EventArgs e)
         {
 
-            //await TextToSpeech.SpeakAsync("Jebi se Keno");
             if (message.Text == null && resultImage.Source == null)
             {
                 await DisplayAlert("Error", "Send Image or Message!", "OK");
@@ -71,7 +72,14 @@ namespace chatApp.Mobile.Views
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            await DisplayAlert("Error", "Send Image or Message!", "OK");
+            var item = e.SelectedItem as HistoryList;
+            await model.VoiceImage(item);
+        }
+
+        private async void Load_Messages(object sender, System.EventArgs e)
+        {
+            model.listSize += 10;
+            await model.Init();
         }
     }
 }

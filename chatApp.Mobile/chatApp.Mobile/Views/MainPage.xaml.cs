@@ -31,13 +31,16 @@ namespace chatApp.Mobile
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
                     case (int)MenuItemType.Profile:
-                        MenuPages.Add(id, new NavigationPage(new EditProfilPage(user)));
+                        MenuPages.Add(id, new NavigationPage(new ProfilDetailPage()));
                         break;
                     case (int)MenuItemType.Settings:
                         MenuPages.Add(id, new NavigationPage(new SettingsPage(user)));
                         break;
                     case (int)MenuItemType.AboutUs:
                         MenuPages.Add(id, new NavigationPage(new AboutPage(user)));
+                        break;
+                    case (int)MenuItemType.Logout:
+                        MenuPages.Add(id, new NavigationPage(new LoginPage()));
                         break;
                 }
             }

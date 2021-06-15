@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:chatApp.Mobile.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:chatApp.Mobile.ViewModels" xmlns:converters="clr-namespace:chatApp.Mobile.Converters"
              x:Class="chatApp.Mobile.Views.ProfilDetailPage"
              Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.BindingContext>
         <vm:ProfilViewModel></vm:ProfilViewModel>
     </ContentPage.BindingContext>
@@ -15,7 +21,11 @@
                 HorizontalTextAlignment="Center"
                    Margin="10" Padding="10" />
             </StackLayout>
-            <StackLayout Margin="16" Padding="5">           
+            <StackLayout Margin="16" Padding="5">
+                <StackLayout VerticalOptions="StartAndExpand" 
+                HorizontalOptions="StartAndExpand">
+                    <Image WidthRequest="200" HeightRequest="100" Source="{Binding Image, Converter={StaticResource imgConv}}"></Image>
+                </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                 <Label Text="UserName: "></Label>
                     <Label Text="{Binding User.UserName}"></Label>

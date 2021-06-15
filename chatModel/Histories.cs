@@ -12,5 +12,6 @@ namespace chatModel
         public bool Status { get; set; }
         public byte[] Image { get; set; }
         public byte[] ImageThumb { get; set; }
+        public string ImagePath { get; set; }
     }
 }

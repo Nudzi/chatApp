@@ -6,6 +6,6 @@
         public int? UserIdSecondary { get; set; }
         public string Message { get; set; }
         public bool? Status { get; set; }
-
+        public int? ListSize { get; set; }
     }
 }

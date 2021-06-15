@@ -21,8 +21,9 @@
                 <StackLayout Orientation="Horizontal"   HorizontalOptions="StartAndExpand">
                     <StackLayout WidthRequest="300">
                         <Label Text="Search to filter users:"></Label>
-                        <SearchBar Placeholder="Enter user name..." 
+                        <SearchBar Placeholder="Enter phone number..." 
                        x:Name="searchBar"/>
+                    <Button Text="Search" Clicked="Button_Clicked"></Button>
                     </StackLayout>
                 </StackLayout>
 
@@ -41,7 +42,7 @@
                 HorizontalOptions="StartAndExpand">
 
                                         <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
-                                            <Label Text="Product Name:  " FontSize="16"></Label>
+                                            <Label Text="First name:  " FontSize="16"></Label>
                                         <Label Text="{Binding FirstName}"
                                        LineBreakMode="NoWrap"
                                                IsVisible="{Binding Seen}"
@@ -67,7 +68,7 @@
                 HorizontalOptions="StartAndExpand">
 
                                     <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
-                                        <Label Text="Product Name:  " FontSize="16"></Label>
+                                        <Label Text="First Name:  " FontSize="16"></Label>
                                         <Label Text="{Binding FirstName}"
                                        LineBreakMode="NoWrap"
                                                IsVisible="{Binding Seen}"

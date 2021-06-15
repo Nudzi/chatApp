@@ -32,8 +32,17 @@ namespace chatApp.WebAPI.Services
             }
             query = query.OrderByDescending(x => x.ModifiedDate);
             var list = query.ToList();
-
-            return _mapper.Map<List<chatModel.Histories>>(list);
+            var sizedList = new List<Histories>();
+            if (list.Count() <= request.ListSize || request.ListSize == null)
+                sizedList = list;
+            else
+            {
+                for (int i = 0; i < request.ListSize; i++)
+                {
+                    sizedList.Add(list[i]);
+                }
+            }
+            return _mapper.Map<List<chatModel.Histories>>(sizedList);
         }
     }
 }

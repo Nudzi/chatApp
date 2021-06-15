@@ -1,8 +1,10 @@
 ﻿using chatApp.Mobile.Services;
 using chatApp.Mobile.ViewModels;
 using chatModel;
+using Plugin.Media;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 
@@ -90,6 +92,8 @@ namespace chatApp.Mobile.Views
             if (validateCity() == false)
                 valid = false;
             if (validateCountry() == false)
+                valid = false;
+            if (validateImage() == false)
                 valid = false;
 
             if (valid == false)
@@ -278,6 +282,50 @@ namespace chatApp.Mobile.Views
                 passwordConfError.IsVisible = false;
                 return true;
             }
+        }
+
+        private bool validateImage()
+        {
+            if (resultImage.Source  == null)
+            {
+                imageError.Text = "Must upload Image!";
+                imageError.IsVisible = true;
+                return false;
+            }
+            else
+            {
+                imageError.IsVisible = false;
+                imageError.Text = "";
+                return true;
+            }
+        }
+
+        private void Remove_Picture(object sender, System.EventArgs e)
+        {
+            resultImage.Source = null;
+        }
+
+        private async void Add_Picture(object sender, System.EventArgs e)
+        {
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                await DisplayAlert("Photos Not Supported", ":( Permission not granted to photos.", "OK");
+                return;
+            }
+            var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+            {
+                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small
+            });
+
+            if (file == null)
+                return;
+            var stream = file.GetStream();
+
+            resultImage.Source = ImageSource.FromStream(() => stream);
+            var memoryStream = new MemoryStream();
+            file.GetStream().CopyTo(memoryStream);
+            file.Dispose();
+            model.byteImage = memoryStream.ToArray();
         }
     }
 }

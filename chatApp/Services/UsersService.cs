@@ -69,6 +69,14 @@ namespace chatApp.WebAPI.Services
             {
                 query = query.Where(x => x.LastName.StartsWith(request.LastName));
             }
+            if (!string.IsNullOrWhiteSpace(request?.PhoneNumber))
+            {
+                query = query.Where(x => x.Telephone.StartsWith(request.PhoneNumber));
+            }
+            if (!string.IsNullOrWhiteSpace(request?.UserName))
+            {
+                query = query.Where(x => x.UserName.StartsWith(request.UserName));
+            }
             var list = query.ToList();
             return _mapper.Map<List<chatModel.Users>>(list);
         }

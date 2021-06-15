@@ -11,10 +11,10 @@ namespace chatApp.Mobile.Views
     public partial class ProfilDetailPage : ContentPage
     {
         ProfilViewModel model = null;
-        public ProfilDetailPage(Users user)
+        public ProfilDetailPage()
         {
             InitializeComponent();
-            BindingContext = model = new ProfilViewModel { User = Global.LoggedUser }; 
+            BindingContext = model = new ProfilViewModel {  }; 
         }
         protected  async override void OnAppearing()
         {
@@ -23,7 +23,7 @@ namespace chatApp.Mobile.Views
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EditProfilPage(model.User));
+            await Navigation.PushAsync(new EditProfilPage());
         }
     }
 }

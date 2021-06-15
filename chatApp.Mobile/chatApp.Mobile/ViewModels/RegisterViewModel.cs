@@ -1,5 +1,6 @@
 ﻿using chatApp.Mobile.Services;
 using chatModel;
+using chatModel.Requests.UserImages;
 using chatModel.Requests.Users;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,7 +13,9 @@ namespace chatApp.Mobile.ViewModels
 
         private readonly APIService _service = new APIService("users");
         private readonly APIService _addressesService = new APIService("userAddresses");
+        private readonly APIService _userImagesService = new APIService("userImages");
         string _firstName = string.Empty;
+        public byte[] byteImage { get; set; }
         public string FirstName
         {
             get { return _firstName; }
@@ -80,7 +83,7 @@ namespace chatApp.Mobile.ViewModels
                 List<int> userTypes = new List<int>();
                 userTypes.Add((int)chatModel.Enums.UserTypes.User);
 
-                //UserAddressesUpsertRequest userAddressesUpserRequest = new UserAddressesUpsertRequest
+                //UserAdressesUpsertRequest userAddressesUpserRequest = new UserAddressesUpsertRequest
                 //{
                 //    AddressName = Address,
                 //    City = City,
@@ -105,7 +108,20 @@ namespace chatApp.Mobile.ViewModels
 
                 var user = await _service.Insert<Users>(request);
                 Global.LoggedUser = user;
+
+                UserImagesSearchRequest imagesSearchRequest = new UserImagesSearchRequest
+                {
+                    UserId = user.Id
+                };
+                UserImagesUpsertRequest userImagesUpsertRequest = new UserImagesUpsertRequest
+                {
+                    Image = byteImage,
+                    ImageThumb = byteImage,
+                    UserId = user.Id
+                };
                 Application.Current.MainPage = new MainPage(user);
+
+                await _userImagesService.Insert<UserImages>(userImagesUpsertRequest);
                 await Application.Current.MainPage.DisplayAlert("Success", "Welcome new User!", "OK");
             }
             catch

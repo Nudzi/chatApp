@@ -37,6 +37,9 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+            <StackLayout>
+                <Button Text="Load Messages" Clicked="Load_Messages"></Button>
+            </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Entry x:Name="message"
                     WidthRequest="400" Placeholder="Type a message..."></Entry>

@@ -54,7 +54,6 @@
                 <Entry Grid.Row="7" Grid.Column="1" x:Name="inputTelephone" Text="{Binding Telephone}"></Entry>
                 <Label Grid.Row="8" Grid.ColumnSpan="2" x:Name="telephoneError" TextColor="Red" IsVisible="True"></Label>
 
-
                 <Label Text="User name: " Grid.Row="9" FontSize="18" VerticalTextAlignment="Center"></Label>
                 <Entry Grid.Row="9" Grid.Column="1" x:Name="inputUserName" Text="{Binding UserName}"></Entry>
                 <Label Grid.Row="10" Grid.ColumnSpan="2" x:Name="userNameError" TextColor="Red" IsVisible="True"></Label>
@@ -79,7 +78,14 @@
                 <Entry Grid.Row="19" Grid.Column="1" x:Name="inputAddress"  Text="{Binding Address}"></Entry>
                 <Label Grid.Row="20" Grid.ColumnSpan="2" x:Name="addressError" TextColor="Red" IsVisible="True"></Label>
 
-                <Button x:Name="ButtonRegister" Grid.Row="21" Grid.Column="1" Text="Register" BackgroundColor="Gray"
+                 <Label Text="Profile Image: " Grid.Row="21" FontSize="18" VerticalTextAlignment="Center"></Label>
+                 <Image Grid.Row="21" Grid.Column="1" HeightRequest="20" x:Name="resultImage" WidthRequest="20"></Image>
+                 
+                <Button Grid.Row="22" Text="+" Clicked="Add_Picture" FontSize="18"></Button>
+                    <Button Grid.Row="22" Grid.Column="1" Text="-" Clicked="Remove_Picture" FontSize="18"></Button>
+                
+                <Label Grid.Row="23" x:Name="imageError" TextColor="Red" IsVisible="True"></Label>
+                    <Button x:Name="ButtonRegister" Grid.Row="24" Grid.ColumnSpan="2" Text="Register" BackgroundColor="Gray"
                        Clicked="ButtonRegister_Clicked"></Button>
             </Grid>
             </ScrollView>

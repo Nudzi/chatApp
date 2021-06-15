@@ -5,7 +5,8 @@
         Welcome,
         AboutUs,
         Settings, 
-        Profile
+        Profile,
+        Logout
     }
     public class HomeMenuItem
     {
