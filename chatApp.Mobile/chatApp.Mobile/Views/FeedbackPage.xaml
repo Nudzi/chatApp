@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:chatApp.Mobile.ViewModels"
+             x:Class="chatApp.Mobile.Views.FeedbackPage">
+    <ContentPage.BindingContext>
+        <vm:FeedbackViewModel></vm:FeedbackViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Welcome to Feedback page"
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout>
+                <Label Text="Leave your feedback!"></Label>
+                <Entry x:Name="feedbacks" Placeholder="Write down what you think about application!"></Entry>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="OR"></Label>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Report user!"></Label>
+                <Entry x:Name="reason" Placeholder="Write down reason..."></Entry>
+                <Entry x:Name="userNumber" Placeholder="Write down users number"></Entry>
+                <!--<Picker ItemsSource="{Binding UserList}" SelectedItem="{Binding SelectedUser}" ItemDisplayBinding="{Binding FirstNameLastName}"></Picker>-->
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="+" Clicked="Add_Picture"></Button>
+                    <Image HeightRequest="60" x:Name="resultImage" WidthRequest="60"></Image>
+                    <Button Text="-" Clicked="Remove_Picture"></Button>
+                </StackLayout>
+            </StackLayout>
+            <Button Clicked="Send_Feedback" Text="Send" BackgroundColor="Red" TextColor="White"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

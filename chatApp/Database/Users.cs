@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace chatApp.Database
 {
@@ -7,6 +6,7 @@ namespace chatApp.Database
     {
         public Users()
         {
+            Feedbacks = new HashSet<Feedbacks>();
             FriendsUserIdprimaryNavigation = new HashSet<Friends>();
             FriendsUserIdsecondaryNavigation = new HashSet<Friends>();
             HistoriesUserIdPrimaryNavigation = new HashSet<Histories>();
@@ -27,6 +27,7 @@ namespace chatApp.Database
         public int? UserAdressId { get; set; }
 
         public virtual UserAdresses UserAdress { get; set; }
+        public virtual ICollection<Feedbacks> Feedbacks { get; set; }
         public virtual ICollection<Friends> FriendsUserIdprimaryNavigation { get; set; }
         public virtual ICollection<Friends> FriendsUserIdsecondaryNavigation { get; set; }
         public virtual ICollection<Histories> HistoriesUserIdPrimaryNavigation { get; set; }

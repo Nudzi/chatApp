@@ -65,7 +65,7 @@ namespace chatApp.Mobile.Views
                 var subject = "Your Subject!";
                 var body = "Your Body!";
                 List<string> list = new List<string>();
-                var recipients = "natureBeauty@gmail.com";
+                var recipients = "chat@gmail.com";
                 list.Add(recipients);
                 var message = new EmailMessage
                 {

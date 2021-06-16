@@ -15,6 +15,7 @@ namespace chatApp.Database
         {
         }
 
+        public virtual DbSet<Feedbacks> Feedbacks { get; set; }
         public virtual DbSet<Friends> Friends { get; set; }
         public virtual DbSet<Histories> Histories { get; set; }
         public virtual DbSet<UserAdresses> UserAdresses { get; set; }
@@ -34,6 +35,19 @@ namespace chatApp.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Feedbacks>(entity =>
+            {
+                entity.Property(e => e.Feedback).HasMaxLength(225);
+
+                entity.Property(e => e.Reason).HasMaxLength(225);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Feedbacks)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Users_Feedbacks");
+            });
+
             modelBuilder.Entity<Friends>(entity =>
             {
                 entity.Property(e => e.DateAdded).HasColumnType("datetime");

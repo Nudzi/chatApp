@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using chatModel.Requests.Histories;
 using System.Linq;
 using chatModel.Requests.Users;
+using Xamarin.Essentials;
 
 namespace chatApp.Mobile.ViewModels
 {
@@ -74,17 +75,15 @@ namespace chatApp.Mobile.ViewModels
                 HistoriesSearchRequest historiesSearchRequest = new HistoriesSearchRequest
                 {
                     UserIdSecondary = Global.LoggedUser.Id,
-                    UserIdPrimary = item.UserIdsecondary,
+                    UserIdPrimary = tmp.UserIdSecondary,
                     Status = false
                 };
-                //if (item.UserIdsecondary == Global.LoggedUser.Id)
-                //{
-                //    tmp.UserIdSecondary = item.UserIdprimary;
-                //}
                 var historylist = await _historiesService.Get<List<Histories>>(historiesSearchRequest);
                 if (historylist.Count() != 0)
+                {
                     tmp.Seen = false;
-
+                    await TextToSpeech.SpeakAsync("You have new message from: " + tmp.FirstName + " " + tmp.LastName);
+                }
                 FriendList.Add(tmp);
             }
 

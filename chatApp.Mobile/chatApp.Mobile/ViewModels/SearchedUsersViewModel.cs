@@ -1,7 +1,5 @@
 ﻿using System.Threading.Tasks;
 
-using Xamarin.Forms;
-
 using chatModel;
 using chatModel.Requests.UserImages;
 using System.Collections.Generic;
@@ -18,15 +16,12 @@ namespace chatApp.Mobile.ViewModels
         private readonly APIService _usersService = new APIService("users");
         private readonly APIService _friendsService = new APIService("friends");
         private readonly APIService _userImagesService = new APIService("userImages");
-        private readonly APIService _historiesService = new APIService("histories");
 
         public ObservableCollection<UsersSearchList> UsersSearchedList { get; set; } = new ObservableCollection<UsersSearchList>();
 
         public SearchedUsersViewModel()
         {
         }
-        public bool HasData = true;
-        public bool NoData = true;
         public string SearchPhone { get; set; }
         public async Task Init()
         {
@@ -60,10 +55,12 @@ namespace chatApp.Mobile.ViewModels
                 ids.Add(friend.UserIdprimary);
             }
 
+            //List<Users> finalUsers = await _usersService.Get<List<Users>>(usersSearchRequest);
+
             List<Users> finalUsers = new List<Users>();
-            finalUsers = users;
             foreach (var item in users)
             {
+                finalUsers.Add(item);
                 foreach (var tmp in ids)
                 {
                     if (item.Id == tmp || item.Id == Global.LoggedUser.Id)
@@ -89,14 +86,6 @@ namespace chatApp.Mobile.ViewModels
                 };
                 UsersSearchedList.Add(tmp);
             }
-            
-
-            if (UsersSearchedList.Count > 0)
-            {
-                HasData = true;
-                NoData = false;
-            }
-            else { HasData = false; NoData = true; }
         }
 
         public async Task AddFriend(UsersSearchList item)

@@ -15,7 +15,7 @@ namespace chatApp.Mobile.Services
         private string _apiUrl = "http://localhost:51598/api";
 #endif
 #if RELEASE
-                private string _apiUrl = "https://natureBeauty";
+                private string _apiUrl = "https://chat";
 #endif
 
         public APIService(string route)

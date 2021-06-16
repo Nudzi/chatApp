@@ -19,7 +19,7 @@
             <Button Command="{Binding LoginCommand}" Text="Login"></Button>
             <Label IsVisible="{Binding IsBusy}" Text="Working..."></Label>
             <StackLayout Margin="10">
-                <Label HorizontalTextAlignment="Center" Text="Still not have account? Register now!"></Label>
+                <Label HorizontalTextAlignment="Center" Text="Still no account? Register now!"></Label>
                 <Button Margin="3" Text="REGISTER" Clicked="Button_Clicked"></Button>
             </StackLayout>
         </StackLayout>

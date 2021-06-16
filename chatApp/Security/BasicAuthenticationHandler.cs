@@ -55,11 +55,6 @@ namespace chatApp.WebAPI.Security
                 new Claim(ClaimTypes.Name, user.FirstName),
             };
 
-            //foreach (var role in user.userTypes)
-            //{
-            //    claims.Add(new Claim(ClaimTypes.Role, role.UserType.Name));
-            //}
-
             var identity = new ClaimsIdentity(claims, Scheme.Name);
             var principal = new ClaimsPrincipal(identity);
             var ticket = new AuthenticationTicket(principal, Scheme.Name);

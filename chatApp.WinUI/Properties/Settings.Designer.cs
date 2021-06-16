@@ -25,7 +25,7 @@ namespace chatApp.WinUI.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44338/api")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:51598/api")]
         public string APIUrl {
             get {
                 return ((string)(this["APIUrl"]));

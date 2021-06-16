@@ -2,6 +2,7 @@
 using System;
 using System.Threading.Tasks;
 using chatModel;
+using chatModel.Requests.Feedbacks;
 
 namespace chatApp.WinUI
 {
@@ -31,6 +32,12 @@ namespace chatApp.WinUI
             return await url.WithBasicAuth(userName, password).GetJsonAsync<T>();
 
         }
+
+        internal Task GetAll<T>(FeedbacksSearchRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<T> Insert<T>(object request)
         {
             try

@@ -6,7 +6,8 @@
         AboutUs,
         Settings, 
         Profile,
-        Logout
+        Logout,
+        Feedback
     }
     public class HomeMenuItem
     {

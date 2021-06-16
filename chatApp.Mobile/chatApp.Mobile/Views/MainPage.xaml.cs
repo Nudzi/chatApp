@@ -42,6 +42,9 @@ namespace chatApp.Mobile
                     case (int)MenuItemType.Logout:
                         MenuPages.Add(id, new NavigationPage(new LoginPage()));
                         break;
+                    case (int)MenuItemType.Feedback:
+                        MenuPages.Add(id, new NavigationPage(new FeedbackPage()));
+                        break;
                 }
             }
 

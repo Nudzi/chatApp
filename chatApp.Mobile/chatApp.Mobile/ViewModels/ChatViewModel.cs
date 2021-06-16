@@ -5,11 +5,8 @@ using chatModel.Requests.Histories;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
 using System.Net.Sockets;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -17,7 +14,6 @@ namespace chatApp.Mobile.ViewModels
 {
     public class ChatViewModel : BaseViewModel
     {
-        private readonly APIService _usersService = new APIService("users");
         private readonly APIService _historiesService = new APIService("histories");
         public ObservableCollection<HistoryList> Histories { get; set; } = new ObservableCollection<HistoryList>();
 

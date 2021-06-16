@@ -16,10 +16,8 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Margin="5" Padding="0,0,3,0" StyleClass="BodyStyle">
-            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                <Label IsVisible="{Binding NoData}" BackgroundColor="OrangeRed" TextColor="White" Text="No Users With That Phone Number :("></Label>
-            </StackLayout>
-            <ListView IsVisible="{Binding HasData}" ItemsSource="{Binding UsersSearchedList}" ItemSelected="ListView_ItemSelected">
+            <Label Text="List of available users: " FontSize="18"></Label>
+            <ListView ItemsSource="{Binding UsersSearchedList}" ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

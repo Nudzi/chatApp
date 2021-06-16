@@ -24,7 +24,7 @@
                     <Label
               Grid.Column="1"
               Grid.Row="2"
-              Text="Nature Beauty"
+              Text="CHAT"
                         TextColor="Black"
                         FontSize="25"
                         ></Label>

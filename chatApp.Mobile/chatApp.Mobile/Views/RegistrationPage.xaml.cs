@@ -28,6 +28,7 @@ namespace chatApp.Mobile.Views
         {
             bool doubleUserName = false;
             bool doubleEmail = false;
+            bool doubleTelephone = false;
 
             List<Users> lista = await _usersService.Get<List<Users>>(null);
 
@@ -40,6 +41,10 @@ namespace chatApp.Mobile.Views
                 if (item.Email.Equals(inputEmail.Text) == true)
                 {
                     doubleEmail = true;
+                }
+                if (item.Telephone.Equals(inputTelephone.Text) == true)
+                {
+                    doubleTelephone = true;
                 }
             }
             if (validateRegistration() == true)
@@ -56,6 +61,13 @@ namespace chatApp.Mobile.Views
                     await DisplayAlert("Error", "Email already exists!", "OK");
                     emailError.Text = "Email already exists!";
                     emailError.IsVisible = true;
+
+                }
+                else if (doubleTelephone == true)
+                {
+                    await DisplayAlert("Error", "Telephone already exists!", "OK");
+                    telephoneError.Text = "Telephone already exists!";
+                    telephoneError.IsVisible = true;
 
                 }
                 else

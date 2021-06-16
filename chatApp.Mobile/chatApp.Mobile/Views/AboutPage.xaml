@@ -36,7 +36,7 @@
                 <StackLayout Orientation="Vertical">
                 <StackLayout Margin="30" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
             <Label Text="Email:" WidthRequest="150" FontSize="20"></Label>
-            <Label Text="natureBeauty@gmail.com" WidthRequest="150" FontSize="20"></Label>
+            <Label Text="chat@gmail.com" WidthRequest="150" FontSize="20"></Label>
         </StackLayout>
             <Button Text="Email us!" Margin="60" BackgroundColor="Bisque"  Clicked="Button_Clicked_2"></Button>
             </StackLayout>

@@ -23,6 +23,7 @@ namespace chatApp.Mobile.Views
                 new HomeMenuItem {Id = MenuItemType.Welcome, Title="Welcome" },
                 new HomeMenuItem {Id = MenuItemType.Profile, Title="Profile" },
                 new HomeMenuItem {Id = MenuItemType.Settings, Title="Settings" },
+                new HomeMenuItem {Id = MenuItemType.Feedback, Title="Feedback" },
                 new HomeMenuItem {Id = MenuItemType.AboutUs, Title="About Us" },
                 new HomeMenuItem {Id = MenuItemType.Logout, Title="Logout" },
             };
