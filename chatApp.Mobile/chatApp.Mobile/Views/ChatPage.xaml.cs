@@ -81,5 +81,34 @@ namespace chatApp.Mobile.Views
             model.listSize += 10;
             await model.Init();
         }
+
+        private async void Take_Shoot(object sender, System.EventArgs e)
+        {
+
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                await DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
+                return;
+            }
+
+            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+            {
+
+                Directory = "Desktop",
+                Name = "test.jpg"
+            });
+
+            if (file == null)
+                return;
+            await DisplayAlert("File Location", file.Path, "OK");
+            var stream = file.GetStream();
+            model.AlbumPath = file.AlbumPath;
+
+            resultImage.Source = ImageSource.FromStream(() => stream);
+            var memoryStream = new MemoryStream();
+            file.GetStream().CopyTo(memoryStream);
+            file.Dispose();
+            model.byteImage = memoryStream.ToArray();
+        }
     }
 }

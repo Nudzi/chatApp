@@ -17,8 +17,6 @@ namespace chatApp.Mobile
             InitializeComponent();
             MasterBehavior = MasterBehavior.Popover;
             BindingContext = model = new MainViewModel() { User = user };
-
-            //MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
         }
         public async Task NavigateFromMenu(int id, Users user)
         {
@@ -32,9 +30,6 @@ namespace chatApp.Mobile
                         break;
                     case (int)MenuItemType.Profile:
                         MenuPages.Add(id, new NavigationPage(new ProfilDetailPage()));
-                        break;
-                    case (int)MenuItemType.Settings:
-                        MenuPages.Add(id, new NavigationPage(new SettingsPage(user)));
                         break;
                     case (int)MenuItemType.AboutUs:
                         MenuPages.Add(id, new NavigationPage(new AboutPage(user)));

@@ -47,6 +47,7 @@
                 <Button Text="+" Clicked="Add_Picture"></Button>
                 <Image HeightRequest="60" x:Name="resultImage" WidthRequest="60"></Image>
                 <Button Text="-" Clicked="Remove_Picture"></Button>
+                <Button Text="Camera" Clicked="Take_Shoot"></Button>
             </StackLayout>
             </StackLayout>
     </ContentPage.Content>

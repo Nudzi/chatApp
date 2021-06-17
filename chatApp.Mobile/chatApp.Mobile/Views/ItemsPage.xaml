@@ -42,15 +42,14 @@
                 HorizontalOptions="StartAndExpand">
 
                                         <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
-                                            <Label Text="First name:  " FontSize="16"></Label>
-                                        <Label Text="{Binding FirstName}"
+                                            <Label WidthRequest="200" Text="First name:  " FontSize="16"></Label>
+                                            <Label WidthRequest="200" Text="{Binding FirstName}"
                                        LineBreakMode="NoWrap"
-                                               IsVisible="{Binding Seen}"
                                        FontSize="16"></Label>
                                     </StackLayout>
                                         <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
-                                            <Label Text="Last Name:  " FontSize="16"></Label>
-                                            <Label Text="{Binding LastName}"
+                                            <Label WidthRequest="200" Text="Last Name:" FontSize="16"></Label>
+                                            <Label WidthRequest="200" Text="{Binding LastName}"
                                        LineBreakMode="NoWrap"
                                        FontSize="16"></Label>
                                         </StackLayout>
@@ -68,15 +67,14 @@
                 HorizontalOptions="StartAndExpand">
 
                                     <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
-                                        <Label Text="First Name:  " FontSize="16"></Label>
-                                        <Label Text="{Binding FirstName}"
+                                        <Label WidthRequest="200" Text="First Name:" FontSize="16"></Label>
+                                            <Label WidthRequest="200" Text="{Binding FirstName}"
                                        LineBreakMode="NoWrap"
-                                               IsVisible="{Binding Seen}"
                                        FontSize="16"></Label>
                                     </StackLayout>
                                     <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="0">
-                                        <Label Text="Last Name:  " FontSize="16"></Label>
-                                        <Label Text="{Binding LastName}"
+                                            <Label WidthRequest="200" Text="Last Name:  " FontSize="16"></Label>
+                                            <Label WidthRequest="200" Text="{Binding LastName}"
                                        LineBreakMode="NoWrap"
                                        FontSize="16"></Label>
                                     </StackLayout>

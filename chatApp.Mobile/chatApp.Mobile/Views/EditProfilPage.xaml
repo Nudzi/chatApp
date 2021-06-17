@@ -18,8 +18,11 @@
             </StackLayout>
             <StackLayout Margin="16" Padding="5">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                        <Label Text="Profile Image"></Label>
-                        <Label Text="Add image here!"></Label>
+                        <StackLayout>
+                            <Label WidthRequest="200" Text="Profile Image"></Label>
+                        </StackLayout>
+
+                        <Label WidthRequest="200" Text="Add image here!"></Label>
                         <Button Text="+" Clicked="Add_Picture"></Button>
                         <Image HeightRequest="80" x:Name="resultImage" WidthRequest="80"></Image>
                         <Button Text="-" Clicked="Remove_Picture"></Button>
@@ -30,28 +33,28 @@
                     <Label Text="{Binding User.Id}" IsVisible="false" ></Label>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="First Name: "></Label>
+                        <Label WidthRequest="200" Text="First Name: "></Label>
                     <Entry Text="{Binding User.FirstName}"
                            Placeholder = "Enter First name"
                            WidthRequest = "200"
                            ></Entry>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Last Name: "></Label>
+                    <StackLayout BackgroundColor="PaleVioletRed" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                        <Label WidthRequest="400" Text="Last Name: "></Label>
                     <Entry Text="{Binding User.LastName}"
                            Placeholder = "Enter Last name"
-                           WidthRequest = "200"
+                           WidthRequest = "400"
                            ></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Telephone:    "></Label>
+                        <Label WidthRequest="200" Text="Telephone:"></Label>
                     <Label Text="{Binding User.Telephone}" WidthRequest = "200"></Label>
                     <Label x:Name="telephoneError" TextColor="Red" IsVisible="True"></Label>
 
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Email:    "></Label>
+                    <Label WidthRequest="200" Text="Email"></Label>
                     <Entry Text="{Binding User.Email}"
                            x:Name="inputEmail" 
                            Placeholder = "Enter Email"

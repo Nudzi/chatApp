@@ -59,9 +59,6 @@ namespace chatApp.Mobile.ViewModels
             get { return _passwordConf; }
             set { SetProperty(ref _passwordConf, value); }
         }
-        private ICommand SaveCommand { get; set; }
-        private ICommand InitCommand { get; set; }
-
         public async Task Init()
         {
             try
@@ -85,7 +82,6 @@ namespace chatApp.Mobile.ViewModels
             try
             {
                 var gettedUser = Global.LoggedUser;
-                //var forUserAddress = await _usersService.GetById<Users>(gettedUser.Id);
 
                 var userInts = new List<int>();
                 if (gettedUser.UserTypes == null)
@@ -97,11 +93,6 @@ namespace chatApp.Mobile.ViewModels
                     foreach (var item in gettedUser.UserTypes)
                         userInts.Add(item.UserTypeId);
                 }
-                //if(forUserAddress.UserAddressId == null)
-                //{
-                //    forUserAddress.UserAddressId = 1;
-                //}
-
                 UsersInsertRequest request = new UsersInsertRequest();
                 request.Id = gettedUser.Id;
                 request.Email = gettedUser.Email;
@@ -130,7 +121,7 @@ namespace chatApp.Mobile.ViewModels
                     var glob = await _usersService.GetById<Users>(request.Id);
                     Global.LoggedUser = glob;
 
-                    if (resultImage != null)
+                    if (resultImage.Source != null)
                     {
                         UserImagesSearchRequest imagesSearchRequest = new UserImagesSearchRequest
                         {

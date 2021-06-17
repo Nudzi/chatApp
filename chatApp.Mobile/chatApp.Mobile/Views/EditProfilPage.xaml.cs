@@ -54,6 +54,7 @@ namespace chatApp.Mobile.Views
             {
                 await model.SaveUserProfil(resultImage);
                 Application.Current.MainPage = new MainPage(Global.LoggedUser);
+                resultImage.Source = null;
             }
             else
             {
