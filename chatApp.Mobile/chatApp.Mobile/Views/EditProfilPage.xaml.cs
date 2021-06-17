@@ -1,5 +1,4 @@
 ﻿using chatApp.Mobile.ViewModels;
-using chatModel;
 using Plugin.Media;
 using System;
 using System.IO;

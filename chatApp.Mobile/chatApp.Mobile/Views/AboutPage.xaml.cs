@@ -71,9 +71,7 @@ namespace chatApp.Mobile.Views
                 {
                     Subject = subject,
                     Body = body,
-                    To = list,
-                    //Cc = ccRecipients,
-                    //Bcc = bccRecipients
+                    To = list
                 };
                 await Email.ComposeAsync(message);
             }

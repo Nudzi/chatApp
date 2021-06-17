@@ -8,7 +8,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout VerticalOptions="CenterAndExpand">
+            <StackLayout VerticalOptions="CenterAndExpand">
             <StackLayout Margin="16" Padding="5">
                 <Label Text="Welcome to Edit Profile page!"
                 FontSize="25"
@@ -21,14 +21,15 @@
                         <StackLayout>
                             <Label WidthRequest="200" Text="Profile Image"></Label>
                         </StackLayout>
-
-                        <Label WidthRequest="200" Text="Add image here!"></Label>
+                        <StackLayout>
+                            <Label WidthRequest="200" Text="Add image here!"></Label>
+                        </StackLayout>
                         <Button Text="+" Clicked="Add_Picture"></Button>
                         <Image HeightRequest="80" x:Name="resultImage" WidthRequest="80"></Image>
                         <Button Text="-" Clicked="Remove_Picture"></Button>
                     </StackLayout>
                     <StackLayout  Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="UserName: "></Label>
+                        <Label Text="UserName: " WidthRequest = "200"></Label>
                     <Label Text="{Binding User.UserName}" WidthRequest = "200"></Label>
                     <Label Text="{Binding User.Id}" IsVisible="false" ></Label>
                 </StackLayout>
@@ -39,11 +40,11 @@
                            WidthRequest = "200"
                            ></Entry>
                 </StackLayout>
-                    <StackLayout BackgroundColor="PaleVioletRed" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                        <Label WidthRequest="400" Text="Last Name: "></Label>
+                    <StackLayout  Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                        <Label WidthRequest="200" Text="Last Name: "></Label>
                     <Entry Text="{Binding User.LastName}"
                            Placeholder = "Enter Last name"
-                           WidthRequest = "400"
+                           WidthRequest = "200"
                            ></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
@@ -64,14 +65,14 @@
                     <Label x:Name="emailError" TextColor="Red" IsVisible="True"></Label>
 
                 </StackLayout>
-                
-                <StackLayout Margin="16" Padding="5">
-                <Label Text="Must enter new password for confirmation or just change it!"></Label>
+
+                    <StackLayout BackgroundColor="PaleVioletRed"  Margin="16" Padding="5">
+                <Label TextColor="Red" Text="Must enter new password for confirmation or just change it!"></Label>
                 <StackLayout Orientation="Horizontal">
-                    <Label WidthRequest="200" Text="Password: "></Label>
+                    <Label WidthRequest="400" Text="Password: "></Label>
                         <Entry Text="{Binding Password}"
                            Placeholder = "Enter Password"
-                           WidthRequest = "200"
+                           WidthRequest = "400"
                            x:Name="inputPassword"
                                IsPassword="True"
                            ></Entry>
@@ -79,10 +80,10 @@
 
                     </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label WidthRequest="200" Text="Password Confirmation: "></Label>
+                    <Label WidthRequest="400" Text="Password Confirmation: "></Label>
                     <Entry Text="{Binding PasswordConf}"
                            Placeholder = "Enter Password Confirmation"
-                           WidthRequest = "200"
+                           WidthRequest = "400"
                            IsPassword="True"
                            x:Name="inputConf"
                            ></Entry>

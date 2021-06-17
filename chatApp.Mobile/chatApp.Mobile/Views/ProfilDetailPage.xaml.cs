@@ -1,5 +1,4 @@
 ﻿using chatApp.Mobile.ViewModels;
-using chatModel;
 using System;
 
 using Xamarin.Forms;

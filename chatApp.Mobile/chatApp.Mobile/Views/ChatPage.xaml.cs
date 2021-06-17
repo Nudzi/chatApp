@@ -3,8 +3,6 @@ using chatModel.Requests.Friends;
 using chatModel.Requests.Histories;
 using Plugin.Media;
 using System.IO;
-using System.Linq;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
