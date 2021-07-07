@@ -113,6 +113,7 @@ namespace chatApp.Mobile.ViewModels
                 {
                     var predicted = Connect("127.0.0.1", AlbumPath);
                     await TextToSpeech.SpeakAsync("You have send a: " + predicted);
+                    byteImage = null;
                 }
             }
             catch (Exception ex)

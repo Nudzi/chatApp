@@ -58,10 +58,10 @@ namespace chatApp.Mobile.Views
         private async void Send_Feedback(object sender, EventArgs e)
         {
             await model.SendFeedback(feedbacks.Text, reason.Text, userNumber.Text);
-            await Navigation.PushAsync(new AboutPage(Global.LoggedUser));
-            feedbacks = null;
-            reason = null;
-            userNumber = null;
+            Application.Current.MainPage = new MainPage(Global.LoggedUser);
+            feedbacks.Text = "";
+            reason.Text = "";
+            userNumber.Text = "";
         }
     }
 }

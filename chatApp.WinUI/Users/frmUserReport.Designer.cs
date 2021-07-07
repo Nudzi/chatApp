@@ -29,6 +29,7 @@ namespace chatApp.WinUI.Users
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserReport));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
@@ -42,6 +43,7 @@ namespace chatApp.WinUI.Users
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 37);
@@ -51,6 +53,7 @@ namespace chatApp.WinUI.Users
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(12, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 20);
@@ -59,6 +62,7 @@ namespace chatApp.WinUI.Users
             // 
             // dgvUsers
             // 
+            this.dgvUsers.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Location = new System.Drawing.Point(16, 159);
             this.dgvUsers.Name = "dgvUsers";
@@ -71,6 +75,7 @@ namespace chatApp.WinUI.Users
             // 
             // txtSearch
             // 
+            this.txtSearch.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtSearch.Location = new System.Drawing.Point(19, 121);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(321, 26);
@@ -78,6 +83,7 @@ namespace chatApp.WinUI.Users
             // 
             // button1
             // 
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Location = new System.Drawing.Point(357, 115);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 38);
@@ -100,6 +106,7 @@ namespace chatApp.WinUI.Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(1112, 450);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
@@ -107,8 +114,9 @@ namespace chatApp.WinUI.Users
             this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmUserReport";
-            this.Text = "frmUserRepoert";
+            this.Text = "User Report";
             this.Load += new System.EventHandler(this.frmUserReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);

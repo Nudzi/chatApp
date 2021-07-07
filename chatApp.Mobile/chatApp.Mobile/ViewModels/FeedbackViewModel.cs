@@ -44,7 +44,6 @@ namespace chatApp.Mobile.ViewModels
                 await _feedbacksService.Insert<Feedbacks>(feedbacksUpsertRequest);
 
                 await Application.Current.MainPage.DisplayAlert("Success", "Success, thank you.", "OK");
-
             }
             catch (Exception ex)
             {

@@ -98,7 +98,6 @@ namespace chatApp.WinUI.Index
 
         private void allToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
             frmFeedbacksAll frm = new frmFeedbacksAll();
             frm.Show();
         }

@@ -14,15 +14,17 @@
                 <Label Text="Leave your feedback!"></Label>
                 <Entry x:Name="feedbacks" Placeholder="Write down what you think about application!"></Entry>
             </StackLayout>
+            <StackLayout HeightRequest="60"></StackLayout>
             <StackLayout>
                 <Label Text="OR"></Label>
             </StackLayout>
+            <StackLayout HeightRequest="60"></StackLayout>
             <StackLayout>
                 <Label Text="Report user!"></Label>
                 <Entry x:Name="reason" Placeholder="Write down reason..."></Entry>
                 <Entry x:Name="userNumber" Placeholder="Write down users number"></Entry>
-                <!--<Picker ItemsSource="{Binding UserList}" SelectedItem="{Binding SelectedUser}" ItemDisplayBinding="{Binding FirstNameLastName}"></Picker>-->
                 <StackLayout Orientation="Horizontal">
+                    <Label Text="Insert image as evidence."></Label>
                     <Button Text="+" Clicked="Add_Picture"></Button>
                     <Image HeightRequest="60" x:Name="resultImage" WidthRequest="60"></Image>
                     <Button Text="-" Clicked="Remove_Picture"></Button>

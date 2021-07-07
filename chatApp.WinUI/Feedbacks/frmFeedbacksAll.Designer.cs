@@ -29,6 +29,7 @@ namespace chatApp.WinUI.Feedbacks
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFeedbacksAll));
             this.dgvFeedbacks = new System.Windows.Forms.DataGridView();
             this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +46,7 @@ namespace chatApp.WinUI.Feedbacks
             // 
             this.dgvFeedbacks.AllowUserToAddRows = false;
             this.dgvFeedbacks.AllowUserToDeleteRows = false;
+            this.dgvFeedbacks.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvFeedbacks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFeedbacks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserId,
@@ -101,6 +103,7 @@ namespace chatApp.WinUI.Feedbacks
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(9, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(173, 37);
@@ -117,6 +120,7 @@ namespace chatApp.WinUI.Feedbacks
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(12, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(177, 20);
@@ -137,14 +141,16 @@ namespace chatApp.WinUI.Feedbacks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(1103, 450);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvFeedbacks);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmFeedbacksAll";
-            this.Text = "frmFeedbacksAll";
+            this.Text = "Feedbacks";
             this.Load += new System.EventHandler(this.frmFeedbacksAll_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFeedbacks)).EndInit();
             this.ResumeLayout(false);

@@ -159,6 +159,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Users\frmReportAlert.resx">
       <DependentUpon>frmReportAlert.cs</DependentUpon>
@@ -185,6 +186,9 @@
       <Project>{7dda1c15-d7e4-4e07-999a-c2b91b83bf68}</Project>
       <Name>chatModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

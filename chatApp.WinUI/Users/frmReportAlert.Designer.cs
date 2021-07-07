@@ -29,6 +29,7 @@ namespace chatApp.WinUI.Users
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportAlert));
             this.label1 = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtConf = new System.Windows.Forms.TextBox();
@@ -42,6 +43,7 @@ namespace chatApp.WinUI.Users
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(8, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 37);
@@ -50,6 +52,7 @@ namespace chatApp.WinUI.Users
             // 
             // txtPass
             // 
+            this.txtPass.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtPass.Location = new System.Drawing.Point(13, 150);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
@@ -58,6 +61,7 @@ namespace chatApp.WinUI.Users
             // 
             // txtConf
             // 
+            this.txtConf.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtConf.Location = new System.Drawing.Point(13, 245);
             this.txtConf.Name = "txtConf";
             this.txtConf.PasswordChar = '*';
@@ -67,6 +71,7 @@ namespace chatApp.WinUI.Users
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(9, 222);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(171, 20);
@@ -76,6 +81,7 @@ namespace chatApp.WinUI.Users
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(11, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 20);
@@ -85,6 +91,7 @@ namespace chatApp.WinUI.Users
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(13, 65);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(133, 20);
@@ -94,7 +101,7 @@ namespace chatApp.WinUI.Users
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(85, 316);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 40);
@@ -107,6 +114,7 @@ namespace chatApp.WinUI.Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(282, 404);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
@@ -115,8 +123,9 @@ namespace chatApp.WinUI.Users
             this.Controls.Add(this.txtConf);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmReportAlert";
-            this.Text = "frmReportAlert";
+            this.Text = "Report Alert";
             this.ResumeLayout(false);
             this.PerformLayout();
 

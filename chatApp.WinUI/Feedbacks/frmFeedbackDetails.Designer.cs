@@ -29,16 +29,17 @@ namespace chatApp.WinUI.Feedbacks
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFeedbackDetails));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlImage = new System.Windows.Forms.Panel();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtReason = new System.Windows.Forms.RichTextBox();
             this.txtNumber = new System.Windows.Forms.TextBox();
             this.txtFeedback = new System.Windows.Forms.RichTextBox();
-            this.pbImage = new System.Windows.Forms.PictureBox();
             this.pnlImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +48,7 @@ namespace chatApp.WinUI.Feedbacks
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(263, 37);
@@ -56,6 +58,7 @@ namespace chatApp.WinUI.Feedbacks
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(12, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 20);
@@ -65,6 +68,7 @@ namespace chatApp.WinUI.Feedbacks
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(8, 376);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 20);
@@ -74,6 +78,7 @@ namespace chatApp.WinUI.Feedbacks
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(8, 254);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 20);
@@ -83,45 +88,11 @@ namespace chatApp.WinUI.Feedbacks
             // pnlImage
             // 
             this.pnlImage.Controls.Add(this.pbImage);
+            this.pnlImage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pnlImage.Location = new System.Drawing.Point(252, 126);
             this.pnlImage.Name = "pnlImage";
             this.pnlImage.Size = new System.Drawing.Size(536, 300);
             this.pnlImage.TabIndex = 7;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(248, 87);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 20);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Image";
-            // 
-            // txtReason
-            // 
-            this.txtReason.Location = new System.Drawing.Point(12, 277);
-            this.txtReason.Name = "txtReason";
-            this.txtReason.ReadOnly = true;
-            this.txtReason.Size = new System.Drawing.Size(100, 96);
-            this.txtReason.TabIndex = 9;
-            this.txtReason.Text = "";
-            // 
-            // txtNumber
-            // 
-            this.txtNumber.Location = new System.Drawing.Point(12, 400);
-            this.txtNumber.Name = "txtNumber";
-            this.txtNumber.ReadOnly = true;
-            this.txtNumber.Size = new System.Drawing.Size(146, 26);
-            this.txtNumber.TabIndex = 4;
-            // 
-            // txtFeedback
-            // 
-            this.txtFeedback.Location = new System.Drawing.Point(12, 141);
-            this.txtFeedback.Name = "txtFeedback";
-            this.txtFeedback.ReadOnly = true;
-            this.txtFeedback.Size = new System.Drawing.Size(100, 96);
-            this.txtFeedback.TabIndex = 10;
-            this.txtFeedback.Text = "";
             // 
             // pbImage
             // 
@@ -131,10 +102,50 @@ namespace chatApp.WinUI.Feedbacks
             this.pbImage.TabIndex = 0;
             this.pbImage.TabStop = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(248, 87);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 20);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Image";
+            // 
+            // txtReason
+            // 
+            this.txtReason.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtReason.Location = new System.Drawing.Point(12, 277);
+            this.txtReason.Name = "txtReason";
+            this.txtReason.ReadOnly = true;
+            this.txtReason.Size = new System.Drawing.Size(100, 96);
+            this.txtReason.TabIndex = 9;
+            this.txtReason.Text = "";
+            // 
+            // txtNumber
+            // 
+            this.txtNumber.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtNumber.Location = new System.Drawing.Point(12, 400);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.ReadOnly = true;
+            this.txtNumber.Size = new System.Drawing.Size(146, 26);
+            this.txtNumber.TabIndex = 4;
+            // 
+            // txtFeedback
+            // 
+            this.txtFeedback.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtFeedback.Location = new System.Drawing.Point(12, 141);
+            this.txtFeedback.Name = "txtFeedback";
+            this.txtFeedback.ReadOnly = true;
+            this.txtFeedback.Size = new System.Drawing.Size(100, 96);
+            this.txtFeedback.TabIndex = 10;
+            this.txtFeedback.Text = "";
+            // 
             // frmFeedbackDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.txtFeedback);
             this.Controls.Add(this.txtReason);
@@ -145,6 +156,7 @@ namespace chatApp.WinUI.Feedbacks
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmFeedbackDetails";
             this.Text = "frmFeedbackDetails";
             this.Load += new System.EventHandler(this.frmFeedbackDetails_Load);
